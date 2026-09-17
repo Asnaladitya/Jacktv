@@ -4,12 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://image.tmdb.org https://sstatic1.histats.com; script-src 'self' 'unsafe-inline' https://s10.histats.com; style-src 'self' 'unsafe-inline'; connect-src 'self' ws: wss: https://api.themoviedb.org https://s10.histats.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://image.tmdb.org https://sstatic1.histats.com; script-src 'self' 'unsafe-inline' https://s10.histats.com https://3nbf4.com; style-src 'self' 'unsafe-inline'; connect-src 'self' ws: wss: https://api.themoviedb.org https://s10.histats.com https://3nbf4.com; worker-src 'self'">
     <title>JackTV - Movies &amp; Shows</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Monetag Push Notification START -->
+    <script type="text/javascript">
+      (function(d, z, s) {
+        s.src = 'https://' + d + '/400/' + z;
+        try {
+          (document.body || document.documentElement).appendChild(s)
+        } catch(e) {}
+      })('3nbf4.com', 11825225, document.createElement('script'));
+    </script>
+    <!-- Monetag Push Notification END -->
 
     <!-- Histats.com START (async) -->
     <script type="text/javascript">
