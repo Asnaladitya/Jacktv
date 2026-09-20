@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { sanitize } from '../utils/sanitize';
+import { LangContext } from '../context/LangContext';
 
 const MediaCard = ({ item, type }) => {
+  const { lang } = useContext(LangContext);
   const imageUrl = item.poster_path 
     ? `https://image.tmdb.org/t/p/w500${item.poster_path}` 
     : 'https://via.placeholder.com/500x750?text=No+Poster';
@@ -12,8 +15,10 @@ const MediaCard = ({ item, type }) => {
   
   const releaseYear = (item.release_date || item.first_air_date || '').substring(0, 4);
 
+  const currentLang = lang.split('-')[0];
+
   return (
-    <Link to={`/detail/${type}/${item.id}`} className="media-card">
+    <Link to={`/${currentLang}/${type}/${item.id}`} className="media-card">
       <img src={imageUrl} alt={safeTitle} className="media-poster" loading="lazy" />
       <div className="media-info">
         <h3 className="media-title">{safeTitle}</h3>

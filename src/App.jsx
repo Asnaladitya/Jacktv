@@ -11,7 +11,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detail/:type/:id" element={<Detail />} />
+          <Route path="/:langCode/:type/:id" element={<Detail />} />
         </Routes>
       </Router>
     </LangProvider>

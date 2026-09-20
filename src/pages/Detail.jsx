@@ -25,13 +25,21 @@ const getPlayButtonText = (langCode) => {
 };
 
 const Detail = () => {
-  const { type, id } = useParams();
+  const { langCode, type, id } = useParams();
   const navigate = useNavigate();
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  const { lang } = useContext(LangContext);
+  const { lang, changeLang } = useContext(LangContext);
+
+  useEffect(() => {
+    // If the URL has a language code, update the global context so it matches
+    if (langCode && langCode !== lang.split('-')[0]) {
+      // Find the corresponding long format for TMDB (e.g., 'fr-FR' or just use the short one if not mapped)
+      changeLang(langCode);
+    }
+  }, [langCode, changeLang, lang]);
 
   useEffect(() => {
     // 1. Validate parameters (must be a number and type must be movie or tv)
