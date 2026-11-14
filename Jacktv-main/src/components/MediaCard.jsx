@@ -1,0 +1,42 @@
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { sanitize } from '../utils/sanitize';
+import { LangContext } from '../context/LangContext';
+import { buildDetailUrl } from '../utils/buildDetailUrl';
+
+const MediaCard = ({ item, type }) => {
+  const { lang } = useContext(LangContext);
+  const imageUrl = item.poster_path 
+    ? `https://image.tmdb.org/t/p/w500${item.poster_path}` 
+    : '/placeholder-poster.svg';
+    
+  const title = item.title || item.name;
+  const safeTitle = sanitize(title);
+  
+  const releaseYear = (item.release_date || item.first_air_date || '').substring(0, 4);
+
+  const currentLang = lang.split('-')[0];
+  const detailUrl = buildDetailUrl(
+    currentLang,
+    type,
+    item.id,
+    title,
+    item.original_title || item.original_name,
+    item.title || item.name
+  );
+
+  return (
+    <Link to={detailUrl} className="media-card">
+      <img src={imageUrl} alt={safeTitle} className="media-poster" loading="lazy" />
+      <div className="media-info">
+        <h3 className="media-title">{safeTitle}</h3>
+        <div className="media-meta">
+          <span>{releaseYear}</span>
+          <span className="rating-badge">★ {item.vote_average ? item.vote_average.toFixed(1) : 'N/A'}</span>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+export default MediaCard;
