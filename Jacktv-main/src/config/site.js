@@ -2,4 +2,4 @@
 export const SUPPORTED_LANGS = ['en', 'id', 'fr', 'ja', 'ko', 'de', 'es', 'it', 'pt', 'hu'];
 
 // Ganti setelah deploy Vercel
-export const SITE_URL = 'https://jacktv.netlify.app';
+export const SITE_URL = 'https://jacktv-kohl.vercel.app';

@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /api/
 
-Sitemap: https://GANTI-DOMAIN-VERCEL/sitemap.xml
+Sitemap: https://jacktv-kohl.vercel.app/sitemap.xml

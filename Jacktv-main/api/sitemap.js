@@ -2,7 +2,7 @@
 // Uses TMDB_API_KEY (server-side, no VITE_ prefix) or falls back to VITE_TMDB_API_KEY
 const API_KEY = process.env.TMDB_API_KEY || process.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
-const SITE_URL = process.env.SITE_URL || 'https://GANTI-DOMAIN-VERCEL';
+const SITE_URL = process.env.SITE_URL || 'https://jacktv-kohl.vercel.app';
 const SUPPORTED_LANGS = ['en', 'id', 'fr', 'ja', 'ko', 'de', 'es', 'it', 'pt', 'hu'];
 
 function slugify(text) {
